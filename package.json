@@ -1,28 +1,28 @@
 {
-  "name": "typescript-action",
+  "name": "mistaken-pull-closer",
   "version": "0.0.0",
   "private": true,
-  "description": "TypeScript template action",
+  "description": "An action to automatically close PRs that were opened by people without push access who use a branch that pre-exists in the repository itself",
   "main": "lib/main.js",
   "scripts": {
-    "build": "tsc",
-    "format": "prettier --write **/*.ts",
-    "format-check": "prettier --check **/*.ts",
-    "lint": "eslint src/**/*.ts",
-    "package": "ncc build --source-map --license licenses.txt",
-    "test": "jest",
-    "all": "npm run build && npm run format && npm run lint && npm run package && npm test"
+    "build": "npx ncc build ./src/main.ts",
+    "ci": "npm run format-check && npm run lint && npm test",
+    "format": "prettier --write **/*.ts **/*.md **/*.yaml **/*.yml",
+    "format-check": "prettier --check **/*.ts **/*.md **/*.yaml **/*.yml",
+    "lint": "npx eslint src/**/*.ts",
+    "start": "npx ncc run ./src/main.ts",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/actions/typescript-action.git"
+    "url": "git+https://github.com/lee-dohm/mistaken-pull-closer.git"
   },
   "keywords": [
     "actions",
     "node",
     "setup"
   ],
-  "author": "",
+  "author": "lee-dohm",
   "license": "MIT",
   "dependencies": {
     "@actions/core": "^1.2.6"
